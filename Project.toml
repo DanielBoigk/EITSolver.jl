@@ -1,0 +1,4 @@
+name = "EITSolver"
+uuid = "40eb11e4-23bf-44da-80df-8d966f7bf2b8"
+authors = ["DanielBoigk <dn.boigk@gmail.com>"]
+version = "0.1.0"
