@@ -10,6 +10,6 @@ function calc_gradient(u::Array{Float64,1}, λ::Array{Float64,1}, V::SingleField
     u_func = FEFunction(V,u)
     λ_func = FEFunction(V,λ)
     gradient = ∇(u_func) ⋅ ∇(λ_func)
-    return interpolate_everywhere(gradient, V)
+    return interpolate_everywhere(gradient, V).free_values
 end
 
