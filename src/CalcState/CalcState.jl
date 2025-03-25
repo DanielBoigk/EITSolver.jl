@@ -1,7 +1,8 @@
 
-calc_state_L2_boundary_neumann!(u::Vector{Float64}, K::AbstractArray{Float64,2}, m::Int64, n::Int64)
+calc_state_L2_boundary_neumann(g::Vector{Float64}, K::AbstractArray{Float64,2}, m::Int64, n::Int64)
     boundary = zeros(n)
-    boundary[1:m] = σ[1:m] ./ γ[1:m]
+    # I'm unsure whether g has zeros appended or not:
+    boundary[1:m] = g[1:m]
     u = K \ boundary
     return u
 end

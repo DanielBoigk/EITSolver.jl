@@ -8,9 +8,12 @@
 
 
 function calc_adjoint_L2_boundary_neumann(u::Vector{Float64}, f::Vector{Float64}, K::AbstractArray{Float64,2}, γ::Vector{Float64}, m::Int64, n::Int64)
-    w = f - u[1:m]
+    # I'm unsure whether f has the right amount of zeros appended or not:
+    w = f[1:m] - u[1:m]
     boundary = zeros(n)
     boundary[1:m] = 2 * w ./ γ[1:m]
     λ = K \ boundary
     return λ
 end
+# Maybe have for performance sake a version where boundary is already initialized
+# Maybe have version with gmres
